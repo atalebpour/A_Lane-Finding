@@ -102,4 +102,6 @@ Here's a [link to my video result](./advanced_lane_finding.mp4)
 
 ***Discussion***
 
-The main issues is related to the thresholds used for lane detection. They are very site specific and a dynamic approach is necessary to ensure accurate result. 
+The main issues is related to the thresholds used for lane detection. They are very site specific and a dynamic approach is necessary to ensure accurate result.
+Another is with the curves and polyfit. When the curve radius is very low, the rolling window approach is not able to find the starting point of the line based on the histogran. Choosing the histogram from the lower quarter of the image can help in these cases. However, that will reduce the accuracy of the model in curves with higher radius.
+
