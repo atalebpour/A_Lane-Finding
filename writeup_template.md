@@ -32,12 +32,14 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 <img src="./examples/calibration1.jpg" width="400">
 <img src="./examples/calibration1_Undist.jpg" width="400">
 
-### Pipeline (single images)
+***Pipeline (single images)***
 
-#### 1. Provide an example of a distortion-corrected image.
+1. Distortion-correction
 
-To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
-![alt text][image2]
+Using `mtx` and `dist` from the previous steps, the images are undistorted using `undistort`.
+
+<img src="./examples/test2.jpg" width="400">
+<img src="./examples/test2_Undistroted.jpg" width="400">
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
