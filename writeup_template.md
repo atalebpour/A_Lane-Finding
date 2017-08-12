@@ -41,41 +41,39 @@ Using `mtx` and `dist` from the previous steps, the images are undistorted using
 <img src="./examples/test2.jpg" width="400">
 <img src="./examples/test2_Undistroted.jpg" width="400">
 
-2. Creating a thresholded binary image.
+2. Creating a thresholded binary image
 
 I used a combination of color and gradient thresholds to generate a binary image. Here's an example of my output for this step.
 
 <img src="./examples/binary.png">
 
-#### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
+3. Performing a perspective transform
 
-The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+The code for my perspective transform includes a function called `birdseye(img)`, which takes as inputs an image (`img`) and based on the following source (`src`) and destination (`dst`) points, it performs the perspective transform.
 
 ```python
-src = np.float32(
-    [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
-    [((img_size[0] / 6) - 10), img_size[1]],
-    [(img_size[0] * 5 / 6) + 60, img_size[1]],
-    [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
-dst = np.float32(
-    [[(img_size[0] / 4), 0],
-    [(img_size[0] / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), 0]])
+src = np.array([[585. /1280.*img_size[1], 455./720.*img_size[0]],
+    [705. /1280.*img_size[1], 455./720.*img_size[0]],
+    [1130./1280.*img_size[1], 720./720.*img_size[0]],
+    [190. /1280.*img_size[1], 720./720.*img_size[0]]], np.float32)
+    
+dst = np.array([[300. /1280.*img_size[1], 100./720.*img_size[0]],
+    [1000./1280.*img_size[1], 100./720.*img_size[0]],
+    [1000./1280.*img_size[1], 720./720.*img_size[0]],
+    [300. /1280.*img_size[1], 720./720.*img_size[0]]], np.float32)
 ```
 
 This resulted in the following source and destination points:
 
 | Source        | Destination   | 
 |:-------------:|:-------------:| 
-| 585, 460      | 320, 0        | 
-| 203, 720      | 320, 720      |
-| 1127, 720     | 960, 720      |
-| 695, 460      | 960, 0        |
+| 585, 455      | 300, 100        | 
+| 705, 455      | 1000, 100      |
+| 1130, 720     | 1000, 720      |
+| 190, 720      | 300, 720        |
 
-I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
-
-![alt text][image4]
+<img src="./examples/wrapped.png">
+<img src="./examples/filled.png" width="400">
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
