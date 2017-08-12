@@ -13,8 +13,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/calibration1.jpg "Distorted"
-[image2]: ./examples/calibration1_Undist.jpg "Undistorted"
+[image1]: ./examples/calibration1.jpg "Distorted" width="48"
+[image2]: ./examples/calibration1_Undist.jpg "Undistorted" width="48"
 [image3]: ./examples/binary_combo_example.jpg "Binary Example"
 [image4]: ./examples/warped_straight_lines.jpg "Warp Example"
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
