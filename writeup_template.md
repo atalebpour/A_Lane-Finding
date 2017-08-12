@@ -45,7 +45,7 @@ Using `mtx` and `dist` from the previous steps, the images are undistorted using
 
 I used a combination of color and gradient thresholds to generate a binary image. Here's an example of my output for this step.
 
-<img src="./examples/binary.png"
+<img src="./examples/binary.png">
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
