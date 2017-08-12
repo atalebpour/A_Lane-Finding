@@ -86,7 +86,7 @@ The `lane_detection` function is the faster method that works based on the resul
 
 5. Identifying the radius of curvature of the lane and the position of the vehicle with respect to center
 
-The radius of curvature is found based on the fitted polyline ($\text{y} = \text{Ax}^2 + \text{Bx} + \text{C}$) and the followign equation.
+The radius of curvature is found based on the fitted polyline ($y = A{x}^2 + B{x} + C$) and the followign equation.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
