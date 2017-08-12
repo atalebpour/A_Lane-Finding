@@ -75,15 +75,18 @@ This resulted in the following source and destination points:
 <img src="./examples/wrapped.png">
 <img src="./examples/filled.png" width="400">
 
-#### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
+4. Identifing lane-line pixels and fiting their positions with a polynomial
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+The functions `lane_detection_init` and `lane_detection` are introduced for lane detection and fitting. The `lane_detection_init` is the full scale function for lane detection. It uses the histogram of the lower half of the image to find the approximate location of the lane. Then a rolling window based approach is used to find the lane throughout the image (10 subsections). Once all location of the lane is found for each subsection, the numpy's `polyfit` function is used to fit the lane.
 
-![alt text][image5]
+The `lane_detection` function is the faster method that works based on the results of the previous images to find the location of the lane. A sanity check is introduced (`sanity` function) is ussed to check if the current lanes are very different from the previous findings. In that case, instead of `lane_detection`, `lane_detection_init` is used.
 
-#### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+<img src="./examples/lanefitting.png" width="400">
 
-I did this in lines # through # in my code in `my_other_file.py`
+
+5. Identifying the radius of curvature of the lane and the position of the vehicle with respect to center
+
+The radius of curvature is found based on the fitted polyline ($\text{y} = \text{Ax}^2 + \text{Bx} + \text{C}$) and the followign equation.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
